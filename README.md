@@ -70,9 +70,47 @@ nothing else; there is no code path that can sign. This is enforced by a test
 that fails the build if a signing-capable import appears — not by a promise in a
 README.
 
+## Verifying somebody else's payment
+
+The point is that you do not need to have made the payment, or to be trusted by
+anyone, to check it. `agent402` sells `/api/uuid` for $0.001 USDC on Stellar
+pubnet; strangers pay it all day. Anyone can confirm one of those:
+
+```
+facturify verify \
+  --network stellar:pubnet \
+  --pay-to GDNJXCKW7ZM7GEEVP674TWPU26YJNBQ2FI4ZIPRKTPTNUEJMDHFJWWRL \
+  --amount 10000 \
+  --asset USDC:GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN
+```
+
+```json
+{
+  "state": "settled",
+  "evidence": {
+    "txHash": "8897ad2de1ac181c5d8eb6d33cc44352d7a418f3381c22b4f6759102ca46918b",
+    "ts": "2026-08-25T14:05:29Z",
+    "amountObserved": "10000"
+  },
+  "ambiguous": false,
+  "candidates": 1
+}
+```
+
+Exit codes are the API for scripts: **0** settled · **1** not settled ·
+**2** unknown · **3** usage. `unknown` has its own code on purpose — a script
+that treats "I could not read the chain" as "it did not settle" is the failure
+this tool exists to prevent.
+
+`pnpm live-gate` runs that check against the real chain, plus the negative and
+the unreadable cases.
+
 ## Status
 
-Early. Scaffolding and types are in place; the engine lands next.
+Working: the engine, both rails, the SDK, the store and the CLI. 70 tests, all
+offline and deterministic, with recorded real chain data as fixtures.
+
+Next: the documentation site and the public in-browser verifier.
 
 ## License
 

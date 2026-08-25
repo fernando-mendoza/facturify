@@ -8,11 +8,30 @@ importers:
 
   .:
     devDependencies:
+      '@types/node':
+        specifier: ^26.3.0
+        version: 26.3.0
       typescript:
         specifier: ^5.7.2
         version: 5.9.3
 
-  packages/cli: {}
+  packages/cli:
+    dependencies:
+      '@facturify/core':
+        specifier: workspace:*
+        version: link:../core
+      '@facturify/rail-evm':
+        specifier: workspace:*
+        version: link:../rail-evm
+      '@facturify/rail-stellar':
+        specifier: workspace:*
+        version: link:../rail-stellar
+      '@facturify/sdk':
+        specifier: workspace:*
+        version: link:../sdk
+      '@facturify/store':
+        specifier: workspace:*
+        version: link:../store
 
   packages/core: {}
 
@@ -28,17 +47,40 @@ importers:
         specifier: workspace:*
         version: link:../core
 
-  packages/sdk: {}
+  packages/sdk:
+    dependencies:
+      '@facturify/core':
+        specifier: workspace:*
+        version: link:../core
+      '@facturify/store':
+        specifier: workspace:*
+        version: link:../store
 
-  packages/store: {}
+  packages/store:
+    dependencies:
+      '@facturify/core':
+        specifier: workspace:*
+        version: link:../core
 
 packages:
+
+  '@types/node@26.3.0':
+    resolution: {integrity: sha512-L3fgrnchriRC2ExBflb8j4uZZURHZfQsmQeyVzhjcHW4kkwVyo8/0h1B2MVzMTrYUJYu6G7EWs14hW/L9putqw==}
 
   typescript@5.9.3:
     resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
+  undici-types@8.3.0:
+    resolution: {integrity: sha512-j375ScV60dom+YkPFIfTLcOiPxkN/buHz5GobjLhixFuANaNs3C9l4GmrWqejgXWJ7BbJcFYpTEUkS1Ge8bpZQ==}
+
 snapshots:
 
+  '@types/node@26.3.0':
+    dependencies:
+      undici-types: 8.3.0
+
   typescript@5.9.3: {}
+
+  undici-types@8.3.0: {}

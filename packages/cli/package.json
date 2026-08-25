@@ -18,12 +18,19 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "echo \"no tests yet — scaffolding\""
+    "test": "pnpm build && node --test \"test/*.test.js\""
   },
   "publishConfig": {
     "access": "public"
   },
   "bin": {
     "facturify": "./dist/cli.js"
+  },
+  "dependencies": {
+    "@facturify/core": "workspace:*",
+    "@facturify/sdk": "workspace:*",
+    "@facturify/rail-stellar": "workspace:*",
+    "@facturify/rail-evm": "workspace:*",
+    "@facturify/store": "workspace:*"
   }
 }
