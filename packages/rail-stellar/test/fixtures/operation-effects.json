@@ -1,0 +1,63 @@
+{
+  "_links": {
+    "self": {
+      "href": "https://horizon.stellar.org/operations/274050365530976257/effects?cursor=\u0026limit=10\u0026order=asc"
+    },
+    "next": {
+      "href": "https://horizon.stellar.org/operations/274050365530976257/effects?cursor=274050365530976257-2\u0026limit=10\u0026order=asc"
+    },
+    "prev": {
+      "href": "https://horizon.stellar.org/operations/274050365530976257/effects?cursor=274050365530976257-1\u0026limit=10\u0026order=desc"
+    }
+  },
+  "_embedded": {
+    "records": [
+      {
+        "_links": {
+          "operation": {
+            "href": "https://horizon.stellar.org/operations/274050365530976257"
+          },
+          "succeeds": {
+            "href": "https://horizon.stellar.org/effects?order=desc\u0026cursor=274050365530976257-1"
+          },
+          "precedes": {
+            "href": "https://horizon.stellar.org/effects?order=asc\u0026cursor=274050365530976257-1"
+          }
+        },
+        "id": "0274050365530976257-0000000001",
+        "paging_token": "274050365530976257-1",
+        "account": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+        "type": "account_debited",
+        "type_i": 3,
+        "created_at": "2026-08-05T07:29:36Z",
+        "asset_type": "credit_alphanum4",
+        "asset_code": "USDC",
+        "asset_issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+        "amount": "0.0200000"
+      },
+      {
+        "_links": {
+          "operation": {
+            "href": "https://horizon.stellar.org/operations/274050365530976257"
+          },
+          "succeeds": {
+            "href": "https://horizon.stellar.org/effects?order=desc\u0026cursor=274050365530976257-2"
+          },
+          "precedes": {
+            "href": "https://horizon.stellar.org/effects?order=asc\u0026cursor=274050365530976257-2"
+          }
+        },
+        "id": "0274050365530976257-0000000002",
+        "paging_token": "274050365530976257-2",
+        "account": "GCLBBPON256CV7ATEHM5B54BOKNC7GX53MBINJ42MHVXGDMMZ3ZWKBHP",
+        "type": "account_credited",
+        "type_i": 2,
+        "created_at": "2026-08-05T07:29:36Z",
+        "asset_type": "credit_alphanum4",
+        "asset_code": "USDC",
+        "asset_issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+        "amount": "0.0200000"
+      }
+    ]
+  }
+}

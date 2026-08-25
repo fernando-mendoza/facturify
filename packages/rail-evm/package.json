@@ -18,9 +18,12 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "echo \"no tests yet — scaffolding\""
+    "test": "pnpm build && node --test \"test/*.test.js\""
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@facturify/core": "workspace:*"
   }
 }

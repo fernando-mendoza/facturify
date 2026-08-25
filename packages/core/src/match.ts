@@ -16,14 +16,29 @@ export function matchClaim(claim: Claim, movements: Movement[] | null): Verdict 
 
   // We verify by reading the collector's account, so the payment shows up there
   // as a credit.
-  const candidates = movements.filter(
+  const sameShape = movements.filter(
     (m) =>
       m.kind === 'credit' &&
       m.asset === claim.asset &&
       m.amount === claim.amount &&
-      inWindow(m.ts, claim.window.from, claim.window.to) &&
-      (claim.payer === undefined || m.counterparty === claim.payer),
+      inWindow(m.ts, claim.window.from, claim.window.to),
   );
+
+  const candidates =
+    claim.payer === undefined
+      ? sameShape
+      : sameShape.filter((m) => m.counterparty === claim.payer);
+
+  // The claim names a payer, nothing confirmed it, and something matched on
+  // every other field with an unreadable counterparty. We cannot say it settled
+  // and we have not earned the right to say it did not.
+  if (
+    claim.payer !== undefined &&
+    candidates.length === 0 &&
+    sameShape.some((m) => m.counterparty === undefined)
+  ) {
+    return { state: 'unknown', reason: 'payer-unverifiable' };
+  }
 
   // Strong path: the claim carries a txHash, so there is nothing to guess.
   if (claim.txHash !== undefined) {

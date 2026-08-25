@@ -1,0 +1,455 @@
+{
+  "_links": {
+    "self": {
+      "href": "https://horizon.stellar.org/accounts/GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3/effects?cursor=\u0026limit=25\u0026order=desc"
+    },
+    "next": {
+      "href": "https://horizon.stellar.org/accounts/GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3/effects?cursor=273889046558777345-1\u0026limit=25\u0026order=desc"
+    },
+    "prev": {
+      "href": "https://horizon.stellar.org/accounts/GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3/effects?cursor=275329037425430529-1\u0026limit=25\u0026order=asc"
+    }
+  },
+  "_embedded": {
+    "records": [
+      {
+        "_links": {
+          "operation": {
+            "href": "https://horizon.stellar.org/operations/275329037425430529"
+          },
+          "succeeds": {
+            "href": "https://horizon.stellar.org/effects?order=desc\u0026cursor=275329037425430529-1"
+          },
+          "precedes": {
+            "href": "https://horizon.stellar.org/effects?order=asc\u0026cursor=275329037425430529-1"
+          }
+        },
+        "id": "0275329037425430529-0000000001",
+        "paging_token": "275329037425430529-1",
+        "account": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+        "type": "account_debited",
+        "type_i": 3,
+        "created_at": "2026-08-24T16:17:41Z",
+        "asset_type": "credit_alphanum4",
+        "asset_code": "USDC",
+        "asset_issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+        "amount": "0.0010000"
+      },
+      {
+        "_links": {
+          "operation": {
+            "href": "https://horizon.stellar.org/operations/275263324424867841"
+          },
+          "succeeds": {
+            "href": "https://horizon.stellar.org/effects?order=desc\u0026cursor=275263324424867841-1"
+          },
+          "precedes": {
+            "href": "https://horizon.stellar.org/effects?order=asc\u0026cursor=275263324424867841-1"
+          }
+        },
+        "id": "0275263324424867841-0000000001",
+        "paging_token": "275263324424867841-1",
+        "account": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+        "type": "account_debited",
+        "type_i": 3,
+        "created_at": "2026-08-23T16:18:44Z",
+        "asset_type": "credit_alphanum4",
+        "asset_code": "USDC",
+        "asset_issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+        "amount": "0.0010000"
+      },
+      {
+        "_links": {
+          "operation": {
+            "href": "https://horizon.stellar.org/operations/275131992915759105"
+          },
+          "succeeds": {
+            "href": "https://horizon.stellar.org/effects?order=desc\u0026cursor=275131992915759105-1"
+          },
+          "precedes": {
+            "href": "https://horizon.stellar.org/effects?order=asc\u0026cursor=275131992915759105-1"
+          }
+        },
+        "id": "0275131992915759105-0000000001",
+        "paging_token": "275131992915759105-1",
+        "account": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+        "type": "account_debited",
+        "type_i": 3,
+        "created_at": "2026-08-21T16:17:34Z",
+        "asset_type": "credit_alphanum4",
+        "asset_code": "USDC",
+        "asset_issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+        "amount": "0.0010000"
+      },
+      {
+        "_links": {
+          "operation": {
+            "href": "https://horizon.stellar.org/operations/275000523966263297"
+          },
+          "succeeds": {
+            "href": "https://horizon.stellar.org/effects?order=desc\u0026cursor=275000523966263297-1"
+          },
+          "precedes": {
+            "href": "https://horizon.stellar.org/effects?order=asc\u0026cursor=275000523966263297-1"
+          }
+        },
+        "id": "0275000523966263297-0000000001",
+        "paging_token": "275000523966263297-1",
+        "account": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+        "type": "account_debited",
+        "type_i": 3,
+        "created_at": "2026-08-19T16:17:25Z",
+        "asset_type": "credit_alphanum4",
+        "asset_code": "USDC",
+        "asset_issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+        "amount": "0.0010000"
+      },
+      {
+        "_links": {
+          "operation": {
+            "href": "https://horizon.stellar.org/operations/274942748065947649"
+          },
+          "succeeds": {
+            "href": "https://horizon.stellar.org/effects?order=desc\u0026cursor=274942748065947649-1"
+          },
+          "precedes": {
+            "href": "https://horizon.stellar.org/effects?order=asc\u0026cursor=274942748065947649-1"
+          }
+        },
+        "id": "0274942748065947649-0000000001",
+        "paging_token": "274942748065947649-1",
+        "account": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+        "type": "account_debited",
+        "type_i": 3,
+        "created_at": "2026-08-18T19:15:30Z",
+        "asset_type": "credit_alphanum4",
+        "asset_code": "USDC",
+        "asset_issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+        "amount": "0.0010000"
+      },
+      {
+        "_links": {
+          "operation": {
+            "href": "https://horizon.stellar.org/operations/274934579038416897"
+          },
+          "succeeds": {
+            "href": "https://horizon.stellar.org/effects?order=desc\u0026cursor=274934579038416897-1"
+          },
+          "precedes": {
+            "href": "https://horizon.stellar.org/effects?order=asc\u0026cursor=274934579038416897-1"
+          }
+        },
+        "id": "0274934579038416897-0000000001",
+        "paging_token": "274934579038416897-1",
+        "account": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+        "type": "account_debited",
+        "type_i": 3,
+        "created_at": "2026-08-18T16:17:28Z",
+        "asset_type": "credit_alphanum4",
+        "asset_code": "USDC",
+        "asset_issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+        "amount": "0.0010000"
+      },
+      {
+        "_links": {
+          "operation": {
+            "href": "https://horizon.stellar.org/operations/274897410391891969"
+          },
+          "succeeds": {
+            "href": "https://horizon.stellar.org/effects?order=desc\u0026cursor=274897410391891969-1"
+          },
+          "precedes": {
+            "href": "https://horizon.stellar.org/effects?order=asc\u0026cursor=274897410391891969-1"
+          }
+        },
+        "id": "0274897410391891969-0000000001",
+        "paging_token": "274897410391891969-1",
+        "account": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+        "type": "account_debited",
+        "type_i": 3,
+        "created_at": "2026-08-18T02:45:04Z",
+        "asset_type": "credit_alphanum4",
+        "asset_code": "USDC",
+        "asset_issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+        "amount": "0.0010000"
+      },
+      {
+        "_links": {
+          "operation": {
+            "href": "https://horizon.stellar.org/operations/274610717028556801"
+          },
+          "succeeds": {
+            "href": "https://horizon.stellar.org/effects?order=desc\u0026cursor=274610717028556801-1"
+          },
+          "precedes": {
+            "href": "https://horizon.stellar.org/effects?order=asc\u0026cursor=274610717028556801-1"
+          }
+        },
+        "id": "0274610717028556801-0000000001",
+        "paging_token": "274610717028556801-1",
+        "account": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+        "type": "account_credited",
+        "type_i": 2,
+        "created_at": "2026-08-13T18:58:07Z",
+        "asset_type": "credit_alphanum4",
+        "asset_code": "USDC",
+        "asset_issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+        "amount": "0.0200000"
+      },
+      {
+        "_links": {
+          "operation": {
+            "href": "https://horizon.stellar.org/operations/274448586308288605"
+          },
+          "succeeds": {
+            "href": "https://horizon.stellar.org/effects?order=desc\u0026cursor=274448586308288605-3"
+          },
+          "precedes": {
+            "href": "https://horizon.stellar.org/effects?order=asc\u0026cursor=274448586308288605-3"
+          }
+        },
+        "id": "0274448586308288605-0000000003",
+        "paging_token": "274448586308288605-3",
+        "account": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+        "type": "claimable_balance_claimant_created",
+        "type_i": 51,
+        "created_at": "2026-08-11T08:06:58Z",
+        "asset": "LMX:GCJF4534PAFBOQ6R7QLVMRKUQV2AMNGEXGGDDN2ISYAIN5XPKTLUMEXO",
+        "balance_id": "000000009d4cdb72de867bae7aae0d6b9d4438db761087106de07aa2ffa179ebab8d3983",
+        "amount": "5.6960000",
+        "predicate": {
+          "abs_before": "2026-08-14T08:06:56Z",
+          "abs_before_epoch": "1786694816"
+        }
+      },
+      {
+        "_links": {
+          "operation": {
+            "href": "https://horizon.stellar.org/operations/274141418837688321"
+          },
+          "succeeds": {
+            "href": "https://horizon.stellar.org/effects?order=desc\u0026cursor=274141418837688321-1"
+          },
+          "precedes": {
+            "href": "https://horizon.stellar.org/effects?order=asc\u0026cursor=274141418837688321-1"
+          }
+        },
+        "id": "0274141418837688321-0000000001",
+        "paging_token": "274141418837688321-1",
+        "account": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+        "type": "account_debited",
+        "type_i": 3,
+        "created_at": "2026-08-06T16:37:52Z",
+        "asset_type": "credit_alphanum4",
+        "asset_code": "USDC",
+        "asset_issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+        "amount": "0.0200000"
+      },
+      {
+        "_links": {
+          "operation": {
+            "href": "https://horizon.stellar.org/operations/274115361271164929"
+          },
+          "succeeds": {
+            "href": "https://horizon.stellar.org/effects?order=desc\u0026cursor=274115361271164929-1"
+          },
+          "precedes": {
+            "href": "https://horizon.stellar.org/effects?order=asc\u0026cursor=274115361271164929-1"
+          }
+        },
+        "id": "0274115361271164929-0000000001",
+        "paging_token": "274115361271164929-1",
+        "account": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+        "type": "account_debited",
+        "type_i": 3,
+        "created_at": "2026-08-06T07:07:11Z",
+        "asset_type": "credit_alphanum4",
+        "asset_code": "USDC",
+        "asset_issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+        "amount": "0.0200000"
+      },
+      {
+        "_links": {
+          "operation": {
+            "href": "https://horizon.stellar.org/operations/274050494380187649"
+          },
+          "succeeds": {
+            "href": "https://horizon.stellar.org/effects?order=desc\u0026cursor=274050494380187649-1"
+          },
+          "precedes": {
+            "href": "https://horizon.stellar.org/effects?order=asc\u0026cursor=274050494380187649-1"
+          }
+        },
+        "id": "0274050494380187649-0000000001",
+        "paging_token": "274050494380187649-1",
+        "account": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+        "type": "account_debited",
+        "type_i": 3,
+        "created_at": "2026-08-05T07:32:23Z",
+        "asset_type": "credit_alphanum4",
+        "asset_code": "USDC",
+        "asset_issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+        "amount": "0.0200000"
+      },
+      {
+        "_links": {
+          "operation": {
+            "href": "https://horizon.stellar.org/operations/274050365530976257"
+          },
+          "succeeds": {
+            "href": "https://horizon.stellar.org/effects?order=desc\u0026cursor=274050365530976257-1"
+          },
+          "precedes": {
+            "href": "https://horizon.stellar.org/effects?order=asc\u0026cursor=274050365530976257-1"
+          }
+        },
+        "id": "0274050365530976257-0000000001",
+        "paging_token": "274050365530976257-1",
+        "account": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+        "type": "account_debited",
+        "type_i": 3,
+        "created_at": "2026-08-05T07:29:36Z",
+        "asset_type": "credit_alphanum4",
+        "asset_code": "USDC",
+        "asset_issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+        "amount": "0.0200000"
+      },
+      {
+        "_links": {
+          "operation": {
+            "href": "https://horizon.stellar.org/operations/274050335465668609"
+          },
+          "succeeds": {
+            "href": "https://horizon.stellar.org/effects?order=desc\u0026cursor=274050335465668609-3"
+          },
+          "precedes": {
+            "href": "https://horizon.stellar.org/effects?order=asc\u0026cursor=274050335465668609-3"
+          }
+        },
+        "id": "0274050335465668609-0000000003",
+        "paging_token": "274050335465668609-3",
+        "account": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+        "type": "trade",
+        "type_i": 33,
+        "created_at": "2026-08-05T07:28:56Z",
+        "seller": "GB3FQB7JYQ37PVYL3DE7ZWYMQCDXZFQBLA23HHJOYA3MIOHCSLT3BCYY",
+        "offer_id": "1851686845",
+        "sold_amount": "18.0000000",
+        "sold_asset_type": "native",
+        "bought_amount": "2.9927268",
+        "bought_asset_type": "credit_alphanum4",
+        "bought_asset_code": "USDC",
+        "bought_asset_issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN"
+      },
+      {
+        "_links": {
+          "operation": {
+            "href": "https://horizon.stellar.org/operations/274050335465668609"
+          },
+          "succeeds": {
+            "href": "https://horizon.stellar.org/effects?order=desc\u0026cursor=274050335465668609-2"
+          },
+          "precedes": {
+            "href": "https://horizon.stellar.org/effects?order=asc\u0026cursor=274050335465668609-2"
+          }
+        },
+        "id": "0274050335465668609-0000000002",
+        "paging_token": "274050335465668609-2",
+        "account": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+        "type": "account_debited",
+        "type_i": 3,
+        "created_at": "2026-08-05T07:28:56Z",
+        "asset_type": "native",
+        "amount": "18.0000000"
+      },
+      {
+        "_links": {
+          "operation": {
+            "href": "https://horizon.stellar.org/operations/274050335465668609"
+          },
+          "succeeds": {
+            "href": "https://horizon.stellar.org/effects?order=desc\u0026cursor=274050335465668609-1"
+          },
+          "precedes": {
+            "href": "https://horizon.stellar.org/effects?order=asc\u0026cursor=274050335465668609-1"
+          }
+        },
+        "id": "0274050335465668609-0000000001",
+        "paging_token": "274050335465668609-1",
+        "account": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+        "type": "account_credited",
+        "type_i": 2,
+        "created_at": "2026-08-05T07:28:56Z",
+        "asset_type": "credit_alphanum4",
+        "asset_code": "USDC",
+        "asset_issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+        "amount": "2.9927268"
+      },
+      {
+        "_links": {
+          "operation": {
+            "href": "https://horizon.stellar.org/operations/274050309696094209"
+          },
+          "succeeds": {
+            "href": "https://horizon.stellar.org/effects?order=desc\u0026cursor=274050309696094209-1"
+          },
+          "precedes": {
+            "href": "https://horizon.stellar.org/effects?order=asc\u0026cursor=274050309696094209-1"
+          }
+        },
+        "id": "0274050309696094209-0000000001",
+        "paging_token": "274050309696094209-1",
+        "account": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+        "type": "trustline_created",
+        "type_i": 20,
+        "created_at": "2026-08-05T07:28:23Z",
+        "asset_type": "credit_alphanum4",
+        "asset_code": "USDC",
+        "asset_issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+        "limit": "922337203685.4775807"
+      },
+      {
+        "_links": {
+          "operation": {
+            "href": "https://horizon.stellar.org/operations/273889046558777345"
+          },
+          "succeeds": {
+            "href": "https://horizon.stellar.org/effects?order=desc\u0026cursor=273889046558777345-3"
+          },
+          "precedes": {
+            "href": "https://horizon.stellar.org/effects?order=asc\u0026cursor=273889046558777345-3"
+          }
+        },
+        "id": "0273889046558777345-0000000003",
+        "paging_token": "273889046558777345-3",
+        "account": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+        "type": "signer_created",
+        "type_i": 10,
+        "created_at": "2026-08-02T20:40:55Z",
+        "weight": 1,
+        "public_key": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+        "key": ""
+      },
+      {
+        "_links": {
+          "operation": {
+            "href": "https://horizon.stellar.org/operations/273889046558777345"
+          },
+          "succeeds": {
+            "href": "https://horizon.stellar.org/effects?order=desc\u0026cursor=273889046558777345-1"
+          },
+          "precedes": {
+            "href": "https://horizon.stellar.org/effects?order=asc\u0026cursor=273889046558777345-1"
+          }
+        },
+        "id": "0273889046558777345-0000000001",
+        "paging_token": "273889046558777345-1",
+        "account": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+        "type": "account_created",
+        "type_i": 0,
+        "created_at": "2026-08-02T20:40:55Z",
+        "starting_balance": "33.0000000"
+      }
+    ]
+  }
+}

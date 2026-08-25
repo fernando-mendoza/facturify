@@ -45,7 +45,9 @@ export interface Evidence {
 export type UnknownReason =
   | 'rail-unreadable'
   | 'window-ungovernable'
-  | 'network-unsupported';
+  | 'network-unsupported'
+  /** A movement matched on every other field, but its payer could not be read. */
+  | 'payer-unverifiable';
 
 export type Verdict =
   | {
@@ -64,7 +66,12 @@ export interface Movement {
   kind: 'debit' | 'credit';
   amount: Atomic;
   asset: AssetRef;
-  counterparty: string;
+  /**
+   * The other side of the movement. Optional because not every chain exposes
+   * it cheaply — and claiming a counterparty we did not read would be the same
+   * class of lie as reporting an unread balance as zero.
+   */
+  counterparty?: string;
   txHash: string;
 }
 

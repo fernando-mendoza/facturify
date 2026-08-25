@@ -1,0 +1,63 @@
+{
+  "_links": {
+    "self": {
+      "href": "https://horizon.stellar.org/operations/274050365530976257"
+    },
+    "transaction": {
+      "href": "https://horizon.stellar.org/transactions/f03a5d5b1da5c888b7d42936052241f75af8a217a55900136e8d4b4597ca4e99"
+    },
+    "effects": {
+      "href": "https://horizon.stellar.org/operations/274050365530976257/effects"
+    },
+    "succeeds": {
+      "href": "https://horizon.stellar.org/effects?order=desc\u0026cursor=274050365530976257"
+    },
+    "precedes": {
+      "href": "https://horizon.stellar.org/effects?order=asc\u0026cursor=274050365530976257"
+    }
+  },
+  "id": "274050365530976257",
+  "paging_token": "274050365530976257",
+  "transaction_successful": true,
+  "source_account": "GA2XHF4XECS7PPVJEJDUOHOMXZWRWX7TNK65HRUPQO4YRBRXW66UCIAC",
+  "type": "invoke_host_function",
+  "type_i": 24,
+  "created_at": "2026-08-05T07:29:36Z",
+  "transaction_hash": "f03a5d5b1da5c888b7d42936052241f75af8a217a55900136e8d4b4597ca4e99",
+  "function": "HostFunctionTypeHostFunctionTypeInvokeContract",
+  "parameters": [
+    {
+      "value": "AAAAEgAAAAGt785ZruUpaPdgYdSUwlJbdWWfpClqZfSZ7ynlZHfklg==",
+      "type": "Address"
+    },
+    {
+      "value": "AAAADwAAAAh0cmFuc2Zlcg==",
+      "type": "Sym"
+    },
+    {
+      "value": "AAAAEgAAAAAAAAAAO2bpIcTeCKGh/gQKmCd9fd5/psb+Nv6jVTVb4ljzIAQ=",
+      "type": "Address"
+    },
+    {
+      "value": "AAAAEgAAAAAAAAAAlhC9zdd8KvwTIdnQ94Fymi+a/dsChqeaYetzDYzO82U=",
+      "type": "Address"
+    },
+    {
+      "value": "AAAACgAAAAAAAAAAAAAAAAADDUA=",
+      "type": "I128"
+    }
+  ],
+  "address": "",
+  "salt": "",
+  "asset_balance_changes": [
+    {
+      "asset_type": "credit_alphanum4",
+      "asset_code": "USDC",
+      "asset_issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+      "type": "transfer",
+      "from": "GA5WN2JBYTPARINB7YCAVGBHPV65475GY37DN7VDKU2VXYSY6MQAIUA3",
+      "to": "GCLBBPON256CV7ATEHM5B54BOKNC7GX53MBINJ42MHVXGDMMZ3ZWKBHP",
+      "amount": "0.0200000"
+    }
+  ]
+}

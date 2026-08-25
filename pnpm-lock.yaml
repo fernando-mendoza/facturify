@@ -16,9 +16,17 @@ importers:
 
   packages/core: {}
 
-  packages/rail-evm: {}
+  packages/rail-evm:
+    dependencies:
+      '@facturify/core':
+        specifier: workspace:*
+        version: link:../core
 
-  packages/rail-stellar: {}
+  packages/rail-stellar:
+    dependencies:
+      '@facturify/core':
+        specifier: workspace:*
+        version: link:../core
 
   packages/sdk: {}
 
