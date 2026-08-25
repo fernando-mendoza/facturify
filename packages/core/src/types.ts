@@ -71,12 +71,21 @@ export interface Movement {
 /** Read-only by construction: no adapter ever accepts a secret key. */
 export interface Rail {
   readonly network: NetworkRef;
-  /** Returns null when the chain could not be read — never an empty array. */
-  movements(since: Iso): Promise<Movement[] | null>;
+  /**
+   * Movements observed on `account`. Returns null when the chain could not be
+   * read — never an empty array, which would mean "there were none".
+   *
+   * The account is a parameter, not bound at construction: verifying a payment
+   * we did not originate means reading the collector's account, and the claim
+   * is what names it.
+   */
+  movements(account: string, since: Iso): Promise<Movement[] | null>;
   balance(account: string, asset: AssetRef): Promise<Atomic | null>;
 }
 
 export type ReconOutcome =
+  /** Could not read the chain. The reconcile-side twin of Verdict's `unknown`. */
+  | 'unreadable'
   | 'baseline'
   | 'ok'
   | 'late-settlement'
