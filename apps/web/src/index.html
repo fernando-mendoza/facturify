@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Facturify — did this agent payment actually settle?</title>
+<meta name="description" content="Verifiable receipts for agent payments. Facturify reads the chain and tells you whether a payment settled — on any rail, without changing your facilitator, and without ever touching your keys." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="icon" href='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%23f7f8fb%22/><path d=%22M7 17l6 6L25 10%22 fill=%22none%22 stroke=%22%231b5cf0%22 stroke-width=%224%22 stroke-linecap=%22square%22/></svg>' />
+<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav__in">
+    <a class="nav__mark" href="#top">Facturify</a>
+    <div class="nav__links">
+      <a class="nav__link" href="#verify">Verify</a>
+      <a class="nav__link" href="#verdicts">Verdicts</a>
+      <a class="nav__link" href="#findings">Findings</a>
+      <a class="nav__link" href="#install">Install</a>
+    </div>
+    <div class="nav__end">
+      <button class="kbd-trigger" id="pal-open" aria-haspopup="dialog">
+        <span aria-hidden="true">⌘</span>K
+      </button>
+      <a class="btn btn--primary" href="#install">Get the CLI</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+<section class="hero wrap" id="verify">
+  <div class="hero__grid">
+    <div>
+      <p class="eyebrow">Receipts for agent payments</p>
+      <h1>Did this payment actually settle?</h1>
+      <p class="hero__lede">
+        A flawless <code>402</code> is not a settled payment, and a <code>200</code> is not a
+        verified delivery. Facturify reads the chain and tells you which one you got.
+      </p>
+      <div class="hero__meta">
+        <span>Any rail · no facilitator change</span>
+        <span>Never touches keys or funds</span>
+        <span>Apache-2.0</span>
+      </div>
+    </div>
+
+    <div class="panel reveal" id="instrument">
+      <div class="panel__head">
+        <span>Live verifier · Stellar pubnet</span>
+        <span id="net-state">reads the chain in your browser</span>
+      </div>
+      <div class="panel__body">
+        <form id="verify-form">
+          <label class="field">
+            <span class="field__label">Collector (payTo)</span>
+            <input class="field__input" id="in-payto" spellcheck="false" autocomplete="off"
+              value="GDNJXCKW7ZM7GEEVP674TWPU26YJNBQ2FI4ZIPRKTPTNUEJMDHFJWWRL" />
+            <span class="field__hint">Prefilled with a live x402 vendor that sells <code>/api/uuid</code> for $0.001 USDC. You did not make these payments — that is the point.</span>
+          </label>
+          <div class="field__row">
+            <label class="field">
+              <span class="field__label">Amount (atomic)</span>
+              <input class="field__input" id="in-amount" inputmode="numeric" value="10000" />
+            </label>
+            <label class="field">
+              <span class="field__label">Window (hours back)</span>
+              <input class="field__input" id="in-hours" inputmode="numeric" value="48" />
+            </label>
+          </div>
+          <label class="field">
+            <span class="field__label">Asset</span>
+            <input class="field__input" id="in-asset" spellcheck="false" autocomplete="off"
+              value="USDC:GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN" />
+          </label>
+          <button class="btn btn--primary" type="submit" id="run" style="width:100%">Verify against the chain</button>
+        </form>
+
+        <div class="out" aria-live="polite">
+          <div class="out__head">
+            <span>verdict</span>
+            <span class="chip chip--idle" id="chip">idle</span>
+          </div>
+          <pre id="out">// Press Verify. This calls Horizon directly from your browser —
+// no server of ours sits between you and the ledger.</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band wrap" id="verdicts">
+  <div class="band__head">
+    <h2>Three answers, and the third one matters most</h2>
+    <p>
+      Most tools return a boolean. A boolean has to lie when the chain could not be read —
+      and that lie is indistinguishable from a real answer.
+    </p>
+  </div>
+  <div class="verdicts">
+    <article class="verdict verdict--settled reveal">
+      <p class="verdict__name">settled <span class="verdict__exit">exit 0</span></p>
+      <p>A movement on the collector's account matches the claim. Comes with a citable
+      transaction hash — not "check the explorer".</p>
+    </article>
+    <article class="verdict verdict--notsettled reveal">
+      <p class="verdict__name">not-settled <span class="verdict__exit">exit 1</span></p>
+      <p>We read the window and nothing matched. This is an assertion, and it is only made
+      when it has been earned.</p>
+    </article>
+    <article class="verdict verdict--unknown reveal">
+      <p class="verdict__name">unknown <span class="verdict__exit">exit 2</span></p>
+      <p>The chain could not be read, or the payer could not be confirmed.
+      <strong>"I could not look" is not "there is nothing."</strong></p>
+    </article>
+  </div>
+</section>
+
+<section class="dark" id="findings">
+  <div class="wrap">
+    <div class="band__head">
+      <h2>Two ways a real payment goes missing</h2>
+      <p>Both were found the expensive way, against mainnet, and both are why the obvious
+      implementation reports settled payments as absent.</p>
+    </div>
+    <div class="split">
+      <div>
+        <p class="finding">Stellar · read /effects, not /payments</p>
+        <h3>The operation carries no money</h3>
+        <p style="margin-bottom:var(--space-md)">A USDC transfer through a Soroban contract is an
+        <code>invoke_host_function</code> with no amount, no asset and no counterparty. A consumer of
+        <code>/payments</code> sees the transfer as if it were empty. Only the effects carry the figures.</p>
+        <div class="snippet">
+          <div class="snippet__head"><span>GET /operations/274050365530976257</span>
+            <button class="copy" data-copy="op">copy</button></div>
+<pre id="snip-op">{
+  <span class="tok-key">"type"</span><span class="tok-pun">:</span> <span class="tok-str">"invoke_host_function"</span><span class="tok-pun">,</span>
+  <span class="tok-key">"amount"</span><span class="tok-pun">:</span> <span class="tok-pun">undefined</span><span class="tok-pun">,</span>
+  <span class="tok-key">"asset_code"</span><span class="tok-pun">:</span> <span class="tok-pun">undefined</span><span class="tok-pun">,</span>
+  <span class="tok-key">"from"</span><span class="tok-pun">:</span> <span class="tok-pun">undefined</span><span class="tok-pun">,</span>
+  <span class="tok-key">"to"</span><span class="tok-pun">:</span> <span class="tok-pun">undefined</span>
+}</pre>
+        </div>
+      </div>
+      <div>
+        <p class="finding">EVM · read Transfer logs, not tx.to</p>
+        <h3>The transaction went to a batcher</h3>
+        <p style="margin-bottom:var(--space-md)">Settlements get batched. This one was sent to
+        Multicall3 — which is neither the token nor the recipient. Any filter on the transaction's
+        destination reports a real, settled payment as missing.</p>
+        <div class="snippet">
+          <div class="snippet__head"><span>eth_getTransactionReceipt</span>
+            <button class="copy" data-copy="rcpt">copy</button></div>
+<pre id="snip-rcpt"><span class="tok-key">to</span><span class="tok-pun">:</span>        <span class="tok-str">0xca11bde05977b3631167028862be2a173976ca11</span>  <span class="tok-pun">// Multicall3</span>
+<span class="tok-key">token</span><span class="tok-pun">:</span>     <span class="tok-str">0x036cbd53842c5426634e7929541ec2318f3dcf7e</span>
+<span class="tok-key">recipient</span><span class="tok-pun">:</span> <span class="tok-str">0xdf98b94653fc914124a5d1b7fa1435a40c656123</span>
+<span class="tok-key">value</span><span class="tok-pun">:</span>     <span class="tok-num">20000</span></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band wrap" id="install">
+  <div class="band__head">
+    <h2>Install, then verify somebody else's payment</h2>
+    <p>You do not need to have made the payment, or to be trusted by anyone, to check it.
+    The chain is the arbiter.</p>
+  </div>
+  <div class="split">
+    <div class="snippet reveal">
+      <div class="snippet__head"><span>CLI</span><button class="copy" data-copy="cli">copy</button></div>
+<pre id="snip-cli">pnpm add -g facturify
+
+facturify verify \
+  --network stellar:pubnet \
+  --pay-to GDNJXCKW7ZM7GEEVP674TWPU26YJNBQ2FI4ZIPRKTPTNUEJMDHFJWWRL \
+  --amount 10000 \
+  --asset USDC:GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN</pre>
+    </div>
+    <div class="snippet reveal">
+      <div class="snippet__head"><span>SDK</span><button class="copy" data-copy="sdk">copy</button></div>
+<pre id="snip-sdk">import { facturify } from '@facturify/sdk'
+import { stellar } from '@facturify/rail-stellar'
+
+const f = facturify({ rails: [stellar()] })
+
+const receipt = await f.record(claim)
+await receipt.awaitSettlement({ deadlineMs: 60_000 })
+// → settled · not-settled · unknown · pending
+
+const trail = await f.export()
+verifyChain(trail)   // validate it without us</pre>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <dl>
+      <dt>What it is</dt>
+      <dd>A read-only verifier for agent payments. Reads the chain, returns a verdict with a citable hash.</dd>
+      <dt>Keys</dt>
+      <dd>None, structurally. No adapter accepts a secret; a test fails the build if a signing-capable import appears.</dd>
+      <dt>Rails</dt>
+      <dd>Stellar pubnet · EVM (ERC-20 Transfer logs). Adding one is implementing two methods.</dd>
+      <dt>Tests</dt>
+      <dd>70, all offline and deterministic, with recorded real chain data as fixtures.</dd>
+      <dt>License</dt>
+      <dd>Apache-2.0</dd>
+    </dl>
+    <p>Facturify · this page runs the same engine the CLI does, in your browser.</p>
+  </div>
+</footer>
+
+<div class="pal" id="pal" role="dialog" aria-modal="true" aria-label="Command palette">
+  <div class="pal__box">
+    <input class="pal__input" id="pal-input" placeholder="Jump to…" spellcheck="false" autocomplete="off" />
+    <ul class="pal__list" id="pal-list" role="listbox" aria-label="Commands"></ul>
+  </div>
+</div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>

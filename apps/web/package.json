@@ -1,0 +1,21 @@
+{
+  "name": "@facturify/web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "echo \"unit-free; run test:e2e (needs a browser + network)\"",
+    "serve": "node --run build && python3 -m http.server 4321 --directory dist",
+    "test:e2e": "node --run build && node test/page.smoke.mjs"
+  },
+  "dependencies": {
+    "@facturify/core": "workspace:*",
+    "@facturify/rail-stellar": "workspace:*"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "playwright": "^1.62.1"
+  }
+}

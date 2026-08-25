@@ -1,0 +1,88 @@
+/* Hallmark · genre: modern-minimal · macrostructure: Component Playground · theme: Cobalt
+ * enrichment: none (the live verifier is the focal element) · nav: N13 · footer: Ft4
+ * axes: paper=cool-light · display=grotesk-sans · accent=electric-cobalt
+ * pre-emit critique: P5 H5 E4 S5 R4 V4
+ */
+:root {
+  /* paper + ink — cool engineered near-white; pure white and pure black are banned */
+  --color-paper:      oklch(98.5% 0.004 250);
+  --color-paper-2:    oklch(96.6% 0.005 252);
+  --color-ink:        oklch(24% 0.02 258);
+  --color-ink-2:      oklch(34% 0.018 257);
+  --color-ink-3:      oklch(52% 0.014 256);
+
+  /* the one signal — used on < 5% of any viewport */
+  --color-accent:     oklch(58% 0.20 256);
+  --color-accent-ink: oklch(99% 0.002 250);
+  --color-accent-dim: oklch(58% 0.20 256 / 0.10);
+
+  /* verdict semantics — three states that never collapse */
+  --color-settled:    oklch(58% 0.20 256);
+  --color-notsettled: oklch(52% 0.16 25);
+  --color-unknown:    oklch(60% 0.13 85);
+
+  /* the dark beat */
+  --color-graphite:   oklch(22% 0.016 260);
+  --color-graphite-2: oklch(19% 0.016 260);
+  --color-on-dark:    oklch(92% 0.006 254);
+  --color-on-dark-2:  oklch(68% 0.012 256);
+
+  --color-rule:       oklch(90% 0.006 254);
+  --color-rule-2:     oklch(30% 0.016 260);
+  --color-focus:      oklch(58% 0.20 256);
+
+  /* interaction states */
+  --color-accent-hover:  oklch(53% 0.20 256);
+  --color-accent-active: oklch(48% 0.19 256);
+  --color-rule-hover:    oklch(84% 0.008 254);
+  --color-scrim:         oklch(24% 0.02 258 / 0.35);
+  --color-lift:          oklch(24% 0.02 258 / 0.12);
+
+  /* verdict chips, on graphite */
+  --chip-settled-bg:    oklch(58% 0.20 256 / 0.16);
+  --chip-settled-ink:   oklch(78% 0.14 256);
+  --chip-notsettled-bg: oklch(52% 0.16 25 / 0.18);
+  --chip-notsettled-ink:oklch(76% 0.12 30);
+  --chip-unknown-bg:    oklch(60% 0.13 85 / 0.18);
+  --chip-unknown-ink:   oklch(80% 0.11 88);
+  --chip-idle-bg:       oklch(40% 0.01 258 / 0.4);
+
+  /* syntax tokens */
+  --tok-key: oklch(70% 0.15 256);
+  --tok-str: oklch(88% 0.03 254);
+  --tok-num: oklch(80% 0.10 150);
+  --tok-pun: oklch(55% 0.012 258);
+
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body:    "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --text-xs:   0.75rem;
+  --text-sm:   0.8125rem;
+  --text-base: 0.9375rem;
+  --text-lg:   1.0625rem;
+  --text-xl:   1.375rem;
+  --text-2xl:  1.75rem;
+  --text-display-s: clamp(1.9rem, 3vw + 0.6rem, 2.6rem);
+  --text-display:   clamp(2.4rem, 4.2vw + 0.5rem, 3.9rem);
+
+  --space-2xs: 0.25rem;
+  --space-xs:  0.5rem;
+  --space-sm:  0.75rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --rule-hair: 1px;
+
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:     cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 140ms;
+  --dur-mid:  260ms;
+  --dur-slow: 600ms;
+}
