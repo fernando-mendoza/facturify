@@ -1,0 +1,29 @@
+{
+  "name": "facturify",
+  "version": "0.0.0",
+  "description": "CLI to verify whether an agent payment actually settled on-chain.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/cli.js",
+  "types": "./dist/cli.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/cli.d.ts",
+      "default": "./dist/cli.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "bin": {
+    "facturify": "./dist/cli.js"
+  }
+}
