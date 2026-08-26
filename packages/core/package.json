@@ -1,6 +1,6 @@
 {
   "name": "@facturify/core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Pure verdict algebra, claim matching, hash chain and reconciliation. No I/O.",
   "keywords": [
     "x402",

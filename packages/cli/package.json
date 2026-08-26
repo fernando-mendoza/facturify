@@ -1,6 +1,6 @@
 {
   "name": "facturify",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CLI to verify whether an agent payment actually settled on-chain.",
   "keywords": [
     "x402",

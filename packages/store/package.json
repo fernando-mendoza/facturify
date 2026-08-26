@@ -1,6 +1,6 @@
 {
   "name": "@facturify/store",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Append-only audit trail store port and adapters.",
   "keywords": [
     "x402",

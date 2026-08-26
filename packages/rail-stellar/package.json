@@ -1,6 +1,6 @@
 {
   "name": "@facturify/rail-stellar",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Read-only Stellar rail: settlement movements via Horizon /effects.",
   "keywords": [
     "x402",

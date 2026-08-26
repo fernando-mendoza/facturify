@@ -1,6 +1,6 @@
 {
   "name": "@facturify/rail-evm",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Read-only EVM rail: settlement movements via ERC-20 Transfer logs.",
   "keywords": [
     "x402",
