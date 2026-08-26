@@ -14,16 +14,16 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       # No `version:` here — package.json's `packageManager` field is the
       # single source of truth, and specifying both is a hard error.
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v6
 
       # No `registry-url:` on purpose. It writes an ~/.npmrc pointing at
       # ${NODE_AUTH_TOKEN}, which is empty here — an empty token competing with
       # OIDC is exactly how this fails confusingly.
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 24            # trusted publishing needs >= 22.14.0
 
