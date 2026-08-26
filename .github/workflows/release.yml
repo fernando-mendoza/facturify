@@ -16,13 +16,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # No `version:` here — package.json's `packageManager` field is the
+      # single source of truth, and specifying both is a hard error.
       - uses: pnpm/action-setup@v4
-        with: { version: 10 }
 
+      # No `registry-url:` on purpose. It writes an ~/.npmrc pointing at
+      # ${NODE_AUTH_TOKEN}, which is empty here — an empty token competing with
+      # OIDC is exactly how this fails confusingly.
       - uses: actions/setup-node@v4
         with:
           node-version: 24            # trusted publishing needs >= 22.14.0
-          registry-url: https://registry.npmjs.org
 
       # OIDC support lives in the npm CLI, and it needs >= 11.5.1.
       - run: npm install -g npm@latest
@@ -56,6 +59,12 @@ jobs:
       #                 `workspace:*` and break install for everyone.
       #   npm publish   is what detects OIDC and attaches provenance.
       # Packing with one and publishing the other is what gets both.
+      # The repo .npmrc references ${NPM_TOKEN} for local publishing from the
+      # vault. In CI that variable does not exist, and an unresolved auth token
+      # is worse than no .npmrc at all: OIDC must be the only credential here.
+      - name: Get the local-publishing .npmrc out of the way
+        run: rm -f .npmrc
+
       - name: Pack (pnpm) and publish (npm, OIDC + provenance)
         run: |
           set -euo pipefail
