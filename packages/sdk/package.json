@@ -1,7 +1,29 @@
 {
   "name": "@facturify/sdk",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Record, await settlement, verify and export agent payment receipts.",
+  "keywords": [
+    "x402",
+    "agentic-payments",
+    "ai-agents",
+    "stablecoin",
+    "usdc",
+    "settlement",
+    "receipts",
+    "sdk",
+    "payment-verification",
+    "mcp"
+  ],
+  "homepage": "https://facturify.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fernando-mendoza/facturify.git",
+    "directory": "packages/sdk"
+  },
+  "bugs": {
+    "url": "https://github.com/fernando-mendoza/facturify/issues"
+  },
+  "author": "Fernando Mendoza <fernandomendozadev@gmail.com>",
   "license": "Apache-2.0",
   "type": "module",
   "main": "./dist/index.js",

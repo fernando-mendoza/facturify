@@ -1,7 +1,29 @@
 {
   "name": "@facturify/store",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Append-only audit trail store port and adapters.",
+  "keywords": [
+    "x402",
+    "agentic-payments",
+    "ai-agents",
+    "stablecoin",
+    "usdc",
+    "settlement",
+    "receipts",
+    "append-only",
+    "audit-trail",
+    "ledger"
+  ],
+  "homepage": "https://facturify.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fernando-mendoza/facturify.git",
+    "directory": "packages/store"
+  },
+  "bugs": {
+    "url": "https://github.com/fernando-mendoza/facturify/issues"
+  },
+  "author": "Fernando Mendoza <fernandomendozadev@gmail.com>",
   "license": "Apache-2.0",
   "type": "module",
   "main": "./dist/index.js",
