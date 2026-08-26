@@ -126,6 +126,8 @@ const COMMANDS: { label: string; hint: string; go: () => void }[] = [
   { label: 'Why tx.to does not work', hint: '#findings', go: () => jump('#findings') },
   { label: 'Install the CLI', hint: '#install', go: () => jump('#install') },
   { label: 'Focus the collector field', hint: 'input', go: () => { jump('#verify'); $<HTMLInputElement>('in-payto').focus(); } },
+  { label: 'Source on GitHub', hint: '↗', go: () => { window.open('https://github.com/fernando-mendoza/facturify', '_blank', 'noopener'); } },
+  { label: 'Packages on npm', hint: '↗', go: () => { window.open('https://www.npmjs.com/package/facturify', '_blank', 'noopener'); } },
 ];
 
 const pal = $<HTMLDivElement>('pal');
