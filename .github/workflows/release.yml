@@ -1,0 +1,86 @@
+name: release
+
+# Tag-triggered. Nothing publishes from a laptop, and nothing publishes
+# without the full suite passing first.
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+  id-token: write   # npm trusted publishing (OIDC) — no token in secrets
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with: { version: 10 }
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24            # trusted publishing needs >= 22.14.0
+          registry-url: https://registry.npmjs.org
+
+      # OIDC support lives in the npm CLI, and it needs >= 11.5.1.
+      - run: npm install -g npm@latest
+
+      - run: pnpm install --frozen-lockfile
+
+      # The tag is the source of truth. A tag that disagrees with the
+      # package versions means someone forgot a bump — stop before publishing
+      # something permanent (npm does not allow unpublishing after 72h).
+      - name: Tag must match the package versions
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          FAIL=0
+          for f in packages/*/package.json; do
+            V=$(node -p "require('./$f').version")
+            N=$(node -p "require('./$f').name")
+            if [ "$V" != "$TAG" ]; then
+              echo "::error::$N is $V but the tag says $TAG"; FAIL=1
+            fi
+          done
+          [ "$FAIL" -eq 0 ] || exit 1
+          echo "all packages are $TAG"
+
+      - run: pnpm build
+      - run: pnpm typecheck
+      - run: pnpm test
+
+      # Two tools on purpose:
+      #   pnpm pack     rewrites `workspace:*` into real versions. `npm publish`
+      #                 run directly inside this workspace would ship the literal
+      #                 `workspace:*` and break install for everyone.
+      #   npm publish   is what detects OIDC and attaches provenance.
+      # Packing with one and publishing the other is what gets both.
+      - name: Pack (pnpm) and publish (npm, OIDC + provenance)
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/tarballs
+          # dependency order, so the registry never shows a package whose
+          # dependency does not exist yet
+          for p in core store rail-stellar rail-evm sdk cli; do
+            pnpm --filter "./packages/$p" pack --pack-destination /tmp/tarballs
+          done
+          for t in \
+            /tmp/tarballs/facturify-core-*.tgz \
+            /tmp/tarballs/facturify-store-*.tgz \
+            /tmp/tarballs/facturify-rail-stellar-*.tgz \
+            /tmp/tarballs/facturify-rail-evm-*.tgz \
+            /tmp/tarballs/facturify-sdk-*.tgz \
+            /tmp/tarballs/facturify-[0-9]*.tgz ; do
+            echo "→ publishing $(basename "$t")"
+            npm publish "$t" --access public --provenance
+          done
+
+      - name: Summary
+        run: |
+          {
+            echo "### Published ${GITHUB_REF_NAME}"
+            echo ""
+            echo "With npm provenance: every tarball is signed with the commit"
+            echo "and workflow that produced it."
+          } >> "$GITHUB_STEP_SUMMARY"

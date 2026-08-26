@@ -3,7 +3,8 @@
 [![npm](https://img.shields.io/npm/v/facturify?label=facturify&color=1b5cf0)](https://www.npmjs.com/package/facturify)
 [![npm](https://img.shields.io/npm/v/%40facturify%2Fsdk?label=%40facturify%2Fsdk&color=1b5cf0)](https://www.npmjs.com/package/@facturify/sdk)
 [![license](https://img.shields.io/badge/license-Apache--2.0-blue)](./LICENSE)
-[![tests](https://img.shields.io/badge/tests-70%20passing-brightgreen)](#tests)
+[![CI](https://github.com/fernando-mendoza/facturify/actions/workflows/ci.yml/badge.svg)](https://github.com/fernando-mendoza/facturify/actions/workflows/ci.yml)
+[![provenance](https://img.shields.io/badge/npm-provenance%20signed-1b5cf0)](https://docs.npmjs.com/generating-provenance-statements)
 
 **Verifiable receipts for agent payments.**
 
@@ -171,6 +172,24 @@ stranger's activity:
 pnpm live-gate                              # hits Stellar pubnet, read-only, free
 pnpm --filter @facturify/web test:e2e       # browser smoke test (needs Chrome)
 ```
+
+## Releasing
+
+Tagged releases only — nothing publishes from a laptop.
+
+```bash
+# bump the six packages to the same version, commit, then:
+git tag v0.2.0 && git push --tags
+```
+
+`release.yml` refuses to publish if the tag disagrees with the package versions, runs the full
+suite first, and publishes through **npm trusted publishing (OIDC)** — so there is no npm token
+in GitHub secrets, and every tarball carries **provenance**: a signed statement of the commit and
+workflow that produced it.
+
+It packs with `pnpm` and publishes with `npm` on purpose. `pnpm pack` rewrites `workspace:*` into
+real versions; `npm publish` is what detects OIDC and attaches provenance. Using either one alone
+loses one of the two.
 
 ## Repository layout
 
